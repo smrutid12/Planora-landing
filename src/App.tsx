@@ -260,18 +260,18 @@ function App() {
               </p>
 
               {/* Task Input */}
-              <div className="flex gap-3 mb-4">
+              <div className="flex flex-col sm:flex-row gap-3 mb-4">
                 <input
                   type="text"
                   value={newTask}
                   onChange={(e) => setNewTask(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && addTask()}
                   placeholder="Add a new task..."
-                  className="flex-1 px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg transition-colors"
+                  className="flex-1 w-full sm:w-auto px-6 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-blue-500 focus:outline-none text-lg transition-colors"
                 />
                 <button
                   onClick={addTask}
-                  className="px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 font-medium shadow-lg hover:shadow-xl"
+                  className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl whitespace-nowrap"
                 >
                   <Plus className="w-5 h-5" />
                   Add
@@ -492,7 +492,7 @@ function App() {
       {/* Waitlist Section */}
       <section id="waitlist" className="px-4 py-16">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 text-center">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 text-center">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               Join the Waitlist
             </h2>
@@ -501,8 +501,8 @@ function App() {
               early access and updates.
             </p>
 
-            <div className="max-w-md mx-auto">
-              <div className="flex gap-3 mb-4">
+            <div className="w-full max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3 mb-4">
                 <input
                   type="email"
                   value={email}
@@ -511,13 +511,13 @@ function App() {
                     e.key === "Enter" && handleWaitlistSignup()
                   }
                   placeholder="Enter your email..."
-                  className="flex-1 px-6 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg transition-colors"
+                  className="flex-1 w-full sm:w-auto px-6 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-blue-500 focus:outline-none text-lg transition-colors"
                   disabled={emailStatus === "loading"}
                 />
                 <button
                   onClick={handleWaitlistSignup}
                   disabled={emailStatus === "loading"}
-                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all flex items-center gap-2 font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
                   {emailStatus === "loading" ? (
                     <span>Joining...</span>
@@ -547,6 +547,7 @@ function App() {
           </div>
         </div>
       </section>
+
       {/* Footer Section */}
       <footer className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-12 mt-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
